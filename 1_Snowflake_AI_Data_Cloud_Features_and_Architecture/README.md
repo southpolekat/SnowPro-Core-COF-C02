@@ -7,6 +7,6 @@ Snowflake is a Data Solution provided as *Software-as-a-Service (SaaS)*. It is a
 
 | Layer | Function | Core Technology |
 |-------|----------|-----------------|
-| Storage | Persists and manages the data. | Data is reorganized into Snowflake's internal optimized, compressed, columnar format. |
+| Database storage | Persists and manages the data. | Data is reorganized into Snowflake's internal optimized, compressed, columnar format. |
 | Compute | Executes queries and DML operations. | Uses Virtual Warehouses. Query execution is performed in this layer. |
-| Cloud Services | Coordinates activities across Snowflake. | Includes services for Authentication, Access Control, and coordination. |
+| Cloud Services | Coordinates activities across Snowflake. | Includes services for Security, Management, Metadata and Optimization. |
