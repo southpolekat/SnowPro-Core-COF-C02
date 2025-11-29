@@ -205,3 +205,21 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# SQL
+# Ignore query output and logs
+*.log
+*.err
+*.out
+*.csv.out
+*.json.out
+
+# Temporary files created by database tools
+*.tmp
+
+# SECURITY: Never commit credentials or connection details!
+# Example: If you use a credentials file for SnowSQL or connection tools
+*.credentials
+.snowsqlconfig
+config.ini
+connections.json
