@@ -44,3 +44,34 @@ Snowflake is a Data Solution provided as *Software-as-a-Service (SaaS)*. It is a
         - Other schema objects
 
 [Reference](https://docs.snowflake.com/en/user-guide/security-access-control-overview#securable-objects)
+
+
+## Editions
+
+The 4 main snowflake editions are
+1. Standard
+2. Enterprise
+3. Business Critical
+4. Virtual Private Snowflake
+
+### Standard Edition
+This is the introductory offering.
+- Provides full, unlimited access to all of Snowflake's standard features.
+- Time Travel retention period defaults to 1 day.
+### Enterprise Edition
+This edition includes all Standard features plus additional capabilities designed for large organizations.
+- Key Features Added
+  - Time Travel: Maximum retention period is increased to 90 days.
+  - Materialized Views
+  - Mulit-cluster Warehouses
+### Business Critical Edition
+This edition (formerly known as Enterprise for Sensitive Data or ESD) includes all Enterprise features plus enhanced security and data protection.
+- Key Focus: Designed for organizations with extremely sensitive data, such as PHI data that must comply with HIPAA and HITRUST CSF regulations.
+- Key Features Added:
+  - Enhanced Security: Includes features like Tri-Secret Secure (encryption of sensitive data).
+  - Business Continuity: Includes support for database failover/failback for disaster recovery.
+### Virtual Private Snowflake (VPS)
+This offers the highest level of security.
+- Key Feature: The entire Snowflake environment is completely separate and isolated from all other Snowflake accounts. VPS accounts do not share any resources with accounts outside the VPS.
+
+[Reference](https://docs.snowflake.com/en/user-guide/intro-editions#overview-of-editions)
