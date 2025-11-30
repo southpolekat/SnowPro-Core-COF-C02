@@ -10,7 +10,7 @@ USE DATABASE SNOWPRO_COF_C02;
 -- A. TEST: CREATE SCHEMA
 ------------------------------------------------------
 
--- Create a new schema (ROLE_1 has the CREATE SCHEMA grant on the database).
+-- Create a new schema (ROLE_1 is the owner of the database).
 CREATE SCHEMA IF NOT EXISTS SCHEMA_1;
 
 -- Set the default schema for the session.
