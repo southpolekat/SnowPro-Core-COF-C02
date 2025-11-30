@@ -24,3 +24,23 @@ Snowflake is a Data Solution provided as *Software-as-a-Service (SaaS)*. It is a
 - Micro-partitions are **immutable**, meaning they cannot be changed once created.
 
 [Reference](https://docs.snowflake.com/en/user-guide/tables-clustering-micropartitions#what-are-micro-partitions)
+
+## Securable Object Hierarchy 
+
+- Organization
+  - Account
+    - User
+    - Role
+    - Other account objects
+    - Warehouse
+    - Database
+      - Database Role
+      - Schema
+        - Table
+        - View
+        - Stage
+        - Stored Procedure
+        - User Defined Function (UDF)
+        - Other schema objects
+
+[Reference](https://docs.snowflake.com/en/user-guide/security-access-control-overview#securable-objects)
