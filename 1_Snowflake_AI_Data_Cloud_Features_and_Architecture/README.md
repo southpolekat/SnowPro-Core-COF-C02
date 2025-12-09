@@ -25,14 +25,18 @@ Snowflake is a Data Solution provided as *Software-as-a-Service (SaaS)*. It is a
 | **Shared-Disk Concept** | All compute nodes (Warehouses) access the **same copy** of data without copying it. |
 
 ## Data Storage Concepts
-- All data in Snowflake tables is automatically divided into **micro-partitions**.
-- Each micro-partitions contains between **50 MB and 500 MB** of uncompressed data.
-- Snowflake stores **metadata** about all all rows stored in a micro-partitions
-  - The range of values for eacho of the columns
-  - The number of distinct values
-  - Additional properties used for both optimization and efficient query processing.
-- Data is organized in a **columnar** way.
-- Micro-partitions are **immutable**, meaning they cannot be changed once created.
+## 💾 Data Storage & Continuous Data Protection (Cheat Sheet)
+
+| Concept | Simple Cheat Sheet Note |
+| :--- | :--- |
+| **Micro-partitions** | The base unit of storage. Contain **50 MB - 500 MB of UNCOMPRESSED** columnar data. |
+| **Columnar Storage** | Data is organized by column inside micro-partitions for faster scanning and better compression. |
+| **Immutability** | Micro-partitions cannot be changed once written (DML/updates create new ones). |
+| **Metadata** | Statistics (Min/Max values, distinct counts) stored in the Cloud Services Layer. **Crucial for Pruning.** |
+| **Data Pruning** | The process of using **Metadata** to skip reading irrelevant micro-partitions during a query. |
+| **Clustering Keys** | User-defined column(s) used to physically **co-locate** related data to maximize pruning effectiveness. |
+| **Data Compression** | All data is **automatically compressed** upon loading, lowering storage costs and improving I/O performance. |
+| **Zero-Copy Cloning** | Instantly creates a writable copy of a Database, Schema, or Table by duplicating only the **metadata** (no added storage cost until the clone is modified). |
 
 [Reference](https://docs.snowflake.com/en/user-guide/tables-clustering-micropartitions#what-are-micro-partitions)
 
