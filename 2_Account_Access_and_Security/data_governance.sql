@@ -5,7 +5,11 @@
 !define table_name=TABLE_1;
 !define view_name=VIEW_1;
 !define role_name=ROLE_1;
+
 !define secure_view_name=SECURE_VIEW_1;
+!define secure_function_name=SECURE_FUNCTION_1;
+
+!define function_name=FUNCTION_1;
 !define secure_function_name=SECURE_FUNCTION_1;
 
 set current_user = current_user();
@@ -42,6 +46,7 @@ GRANT USAGE ON DATABASE &{database_name} TO ROLE &{role_name};
 GRANT USAGE ON SCHEMA &{database_name}.&{schema_name} TO ROLE &{role_name};
 GRANT SELECT ON FUTURE TABLES IN SCHEMA &{database_name}.&{schema_name} TO ROLE &{role_name};
 GRANT SELECT ON FUTURE VIEWS IN SCHEMA &{database_name}.&{schema_name} TO ROLE &{role_name};
+GRANT USAGE ON FUTURE FUNCTIONS IN SCHEMA &{database_name}.&{schema_name} TO ROLE &{role_name};
 GRANT USAGE ON WAREHOUSE &{warehouse_name} TO ROLE &{role_name};
 
 GRANT ROLE &{role_name} TO USER identifier($current_user);
@@ -67,6 +72,41 @@ SELECT * FROM &{database_name}.&{schema_name}.&{secure_view_name};
 SELECT GET_DDL('VIEW', '&{database_name}.&{schema_name}.&{view_name}');
 -- SELECT GET_DDL('VIEW', '&{database_name}.&{schema_name}.&{secure_view_name}');
 -- Error: Object does not exist, or operation cannot be performed.
+
+/* -----------------------------------------------------------------------------
+   Test normal function and secure function
+------------------------------------------------------------------------------- */
+USE ROLE SYSADMIN;
+
+-- Create a normal function
+CREATE OR REPLACE FUNCTION &{database_name}.&{schema_name}.&{function_name} (x INT) 
+RETURNS INT 
+AS 
+$$ 
+    x * 2 
+$$;
+
+-- Create a secure function
+CREATE OR REPLACE SECURE FUNCTION &{database_name}.&{schema_name}.&{secure_function_name}(x INT)
+RETURNS INT 
+AS 
+$$ 
+    x * 2 
+$$;
+
+USE ROLE &{role_name};
+USE SECONDARY ROLE NONE;
+USE WAREHOUSE &{warehouse_name};
+
+SELECT &{database_name}.&{schema_name}.&{function_name}(1);
+SELECT &{database_name}.&{schema_name}.&{secure_function_name}(1);
+
+-- Attempt to see the definition of the normal function (works)
+SELECT GET_DDL('FUNCTION', '&{database_name}.&{schema_name}.&{function_name}(INT)');
+
+-- Attempt to see the definition of the secure function (fails, protects logic)
+-- SELECT GET_DDL('FUNCTION', '&{database_name}.&{schema_name}.&{secure_function_name}(INT)'); 
+-- Expected Error: Object does not exist, or operation cannot be performed.
 
 /* -----------------------------------------------------------------------------
    CLEANUP
