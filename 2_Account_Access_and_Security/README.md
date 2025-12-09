@@ -1,4 +1,4 @@
-# Domain 2: Account Access and Security
+# Domain 2: Account Access and Security (18%)
 
 This section covers the fundamental objects and approaches Snowflake uses to manage access to data and resources.
 

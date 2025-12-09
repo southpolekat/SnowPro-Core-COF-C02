@@ -1,4 +1,4 @@
-# Domain 1: Snowflake AI Data Cloud Features & Architecture
+# Domain 1: Snowflake AI Data Cloud Features & Architecture (24%)
 
 This domain covers the fundamental design and core components of the Snowflake platform.
 
