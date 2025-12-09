@@ -71,3 +71,19 @@ Snowflake is a Data Solution provided as *Software-as-a-Service (SaaS)*. It is a
 | Virtual Private Snowflake | Dedicated virtual infrastructure with complete isolation |
 
 [Reference](https://docs.snowflake.com/en/user-guide/intro-editions#overview-of-editions)
+
+## Tools & Interfaces
+
+| Tool / Interface | Key Function | Best For |
+| :--- | :--- | :--- |
+| **Snowsight** | The **modern, web-based UI**. Explore, query, manage data, build Streamlit apps, and control cost. | Analysts, Admins, Interactive use. |
+| **SnowSQL CLI** | Official **Command-Line Interface (CLI)**. Run SQL, DDL/DML, scripts, and execute **PUT/GET** local file transfers. | Automation, Scripts, Local data staging. |
+| **Snowflake CLI** | **Modern, extensible CLI** (SnowCLI). | Managing and **deploying** modern developer objects (Native Apps, Snowpark functions). |
+| **Snowflake Drivers** | **Low-level connection libraries** (JDBC, ODBC, Python, Node.js). Connect applications securely. | Developers integrating apps. |
+| **Snowflake Connectors** | **Pre-built interfaces** for external systems (Kafka, Spark, BI tools). Stream data, run distributed transforms. | Data Integration, ETL workflows. |
+| **Snowpark** | Developer framework for building in-database apps using **Python, Java, and Scala**. Use DataFrames/UDFs. | Data Scientists, Developers building scalable apps. |
+| **Streamlit in Snowflake** | Develop and deploy **interactive data applications** directly **inside** Snowflake (no external servers needed). | Analysts, Data Scientists, Rapid Prototyping. |
+| **Snowflake SQL API** | **Secure REST API** endpoint. Execute SQL statements programmatically and retrieve results via REST. | Serverless functions, Microservices, Automation scripts. |
+| **Cortex AI/ML Services**| Snowflake's **integrated AI/ML layer**. Provides ready-to-use intelligence (Analyst, Search, Document AI) on your data. | Teams building AI-native applications. |
+| **SnowCD** | **Command-Line Diagnostic Tool**. Checks network connectivity, DNS, proxy, and firewall configurations. | Network Admins, DevOps teams troubleshooting connectivity. |
+| **VS Code Extension** | Enables running SQL queries and managing objects directly from the **Visual Studio Code** environment. | Developers who prefer a dedicated IDE experience. |
