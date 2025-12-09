@@ -13,6 +13,17 @@ Snowflake is a Data Solution provided as *Software-as-a-Service (SaaS)*. It is a
 
 [Reference](https://docs.snowflake.com/en/user-guide/intro-key-concepts#snowflake-architecture)
 
+## Architecture & Core Concepts (Cheat Sheet)
+
+| Concept | Simple Cheat Sheet Note |
+| :--- | :--- |
+| **Snowflake Architecture** | **Hybrid** of Shared-Disk (Storage) and Shared-Nothing (Compute) architectures. |
+| **Multi-Cluster Architecture** | Compute and Storage are **separated** and **scale independently**. |
+| **Virtual Warehouses** | The **Compute Cluster** (engine) that runs queries. Scales up/out. |
+| **Cloud Services Layer** | The **Brain** that handles all management (metadata, security, optimization, transactions). |
+| **Database Storage Layer** | **Centralized**, persistent home for your data, optimized for analytics. |
+| **Shared-Disk Concept** | All compute nodes (Warehouses) access the **same copy** of data without copying it. |
+
 ## Data Storage Concepts
 - All data in Snowflake tables is automatically divided into **micro-partitions**.
 - Each micro-partitions contains between **50 MB and 500 MB** of uncompressed data.
