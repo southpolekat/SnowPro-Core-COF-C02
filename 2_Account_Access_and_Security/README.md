@@ -38,3 +38,13 @@ Scope-Based Role Type
 - **Service Roles**: Allow a role access to service endpoints (e.g., budgets or data quality features).
 
 [Reference](https://docs.snowflake.com/en/user-guide/security-access-control-overview#roles)
+
+## Authentication Methods
+
+| Method | Simple Cheat Sheet Note | Use Case |
+| :--- | :--- | :--- |
+| **Username/Password** | Standard basic login. Enforced by strong **password policies**. | Default login for users (e.g., Snowsight). |
+| **Multi-Factor Auth (MFA)** | **Additional security layer** (TOTP, push). Must be enabled by the user or required by policy. | Required for high-privilege roles (**ACCOUNTADMIN**, **SECURITYADMIN**). |
+| **SSO Integration** | Uses external enterprise identity providers (IdPs) via **SAML 2.0**. | Centralized user management (e.g., Okta, Azure AD). |
+| **Key Pair Authentication** | Uses **RSA public-private keys** instead of passwords. | Recommended for **scripting, automation**, and secure CLI connections (**SnowSQL**). |
+| **External OAuth** | Grants access via **tokens** issued by external OAuth providers. | Used by modern web and mobile applications to access Snowflake. |
