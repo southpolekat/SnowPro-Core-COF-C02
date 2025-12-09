@@ -48,3 +48,16 @@ Scope-Based Role Type
 | **SSO Integration** | Uses external enterprise identity providers (IdPs) via **SAML 2.0**. | Centralized user management (e.g., Okta, Azure AD). |
 | **Key Pair Authentication** | Uses **RSA public-private keys** instead of passwords. | Recommended for **scripting, automation**, and secure CLI connections (**SnowSQL**). |
 | **External OAuth** | Grants access via **tokens** issued by external OAuth providers. | Used by modern web and mobile applications to access Snowflake. |
+
+## Data Governance
+| Feature | Category | Function (What it does) |
+| :--- | :--- | :--- |
+| **Row Access Policy** | RLS | Filters **WHICH ROWS** a user can see (Row-Level Security). |
+| **Masking Policy** | CLS | Transforms or redacts data in **SPECIFIC COLUMNS** (Column-Level Security). |
+| **Access History** | Auditing | Tracks **all read/write operations** on tables/columns for compliance. (Found in **Account Usage** views). |
+| **Object Tags** | Classification | Applies **classification metadata** (key-value) for tracking cost/sensitivity/lineage. |
+| **Role Hierarchy** | RBAC | Defines the flow of **Privilege Inheritance** through nested roles. |
+| **Secure Views** | Privacy | Hides the underlying **View Definition (SQL logic)** from users. |
+| **Secure Functions** | Privacy | Hides the underlying **UDF Logic** (proprietary code) from users. |
+| **Information Schema** | Discovery | Provides metadata about objects within a **SINGLE DATABASE**. |
+| **Accounts & Organizations** | Administration | Enables **Centralized Management** for multiple Snowflake accounts. |
