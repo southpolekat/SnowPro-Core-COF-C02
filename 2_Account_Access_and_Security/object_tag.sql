@@ -64,7 +64,19 @@ SELECT * FROM table(&{database_name}.information_schema.tag_references('&{databa
 -- Use ACCOUNTADMIN or a role with access to SNOWFLAKE.ACCOUNT_USAGE
 -- Note: This view is updated with a delay (up to ? hour)
 USE ROLE ACCOUNTADMIN; 
+SELECT * FROM SNOWFLAKE.ACCOUNT_USAGE.TAGS;
 SELECT * FROM SNOWFLAKE.ACCOUNT_USAGE.TAG_REFERENCES;
+
+/* -----------------------------------------------------------------------------
+  Sample code to get warehouse cost using cost center tag
+------------------------------------------------------------------------------- */
+SELECT SUM(CREDITS_USED) FROM SNOWFLAKE.ACCOUNT_USAGE.WAREHOUSE_METERING_HISTORY W
+INNER JOIN SNOWFLAKE.ACCOUNT_USAGE.TAG_REFERENCES T
+    ON W.WAREHOUSE_NAME = T.OBJECT_NAME
+    AND T.TAG_NAME = 'COST_CENTER'
+    AND T.DOMAIN = 'WAREHOUSE'
+    AND T.TAG_VALUE = 'ENGINEERING'
+;
 
 /* -----------------------------------------------------------------------------
    Notes: Query Tag vs Object Tag
