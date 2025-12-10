@@ -61,3 +61,12 @@ Scope-Based Role Type
 | **Secure Functions** | Privacy | Hides the underlying **UDF Logic** (proprietary code) from users. |
 | **Information Schema** | Discovery | Provides metadata about objects within a **SINGLE DATABASE**. |
 | **Accounts & Organizations** | Administration | Enables **Centralized Management** for multiple Snowflake accounts. |
+
+## Network & Connectivity Security
+| Feature | Category | Function (What it does) |
+| :--- | :--- | :--- |
+| **Network Policies** | Access Control | Manages **IP allowlists and blocklists** to restrict which public IP addresses can connect to your Snowflake account. |
+| **Private Connectivity** | Network Isolation | Establishes a **private, secure, and dedicated connection** between your VPC and Snowflake using services like **AWS PrivateLink** and **Azure Private Link**. |
+| **Tri-Secret Secure** | Data Encryption | Snowflake's advanced encryption layer using **three unique keys** (including the Customer-Managed Key, if configured) to secure data at rest. |
+| **Client Redirect** | Seamless Connectivity | Allows administrators to redirect users to a **specific or secondary Snowflake URL** (e.g., for failover/DR) without users changing connection strings. |
+| **Federated Authentication** | Identity | Enables **Single Sign-On (SSO)** for human users via an external Identity Provider (IdP) using SAML, replacing password authentication. |
