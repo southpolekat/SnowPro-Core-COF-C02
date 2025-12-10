@@ -22,4 +22,9 @@
 !define governance_role=governance_role;
 !define governance_schema_name=governance_schema;
 
+!define user_name=user_1;
+!define user_2_name=user_2;
+-- Note: Replace the password with a secure, temporary password
+!define password=TEMP_CHANGE_ME_NOW_123!;
+
 set current_user = current_user();

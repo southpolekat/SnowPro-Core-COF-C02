@@ -27,8 +27,16 @@ WITH
     AUTO_RESUME = TRUE
 ;
 
+
 /* -----------------------------------------------------------------------------
-   SETUP USER AND ROLES
+   SETUP USERS
+------------------------------------------------------------------------------- */
+use role useradmin;
+CREATE USER IF NOT EXISTS &{user_name} PASSWORD = '&{password}';
+CREATE USER IF NOT EXISTS &{user_2_name} PASSWORD = '&{password}';
+
+/* -----------------------------------------------------------------------------
+   SETUP ROLES
 ------------------------------------------------------------------------------- */
 use role securityadmin;
 CREATE ROLE IF NOT EXISTS &{role_name};
