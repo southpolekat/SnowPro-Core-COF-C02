@@ -66,6 +66,23 @@ SELECT * FROM table(&{database_name}.information_schema.tag_references('&{databa
 USE ROLE ACCOUNTADMIN; 
 SELECT * FROM SNOWFLAKE.ACCOUNT_USAGE.TAG_REFERENCES;
 
+/* -----------------------------------------------------------------------------
+   Notes: Query Tag vs Object Tag
+   Query Tag:
+   - Goal: Track Activity, Usage, and Cost associated with compute time.
+   - Scope: Applies to a single query or a user's current session.
+   - Mechanism: Set using the QUERY_TAG session parameter.
+   - Data Location: Found in the QUERY_TAG column within the Query History (Account Usage).
+   - Persistence: Temporary; is not attached to the underlying data.
+
+Object Tag:
+   - Goal: Enforce Data Governance, Classification, and Compliance.
+   - Scope: Applies to a securable object (Table, Column, Database, Warehouse, Role, etc.).
+   - Mechanism: Set using DDL (ALTER [OBJECT] SET TAG...).
+   - Data Location: Found in the TAG_REFERENCES view (Account Usage).
+   - Persistence: Permanent; remains attached to the object until explicitly unset.
+------------------------------------------------------------------------------- */
+
 -- cleanup
 --!quit -- UNCOMMENT THIS LINE TO STOP THE SCRIPT HERE BEFORE CLEANUP
 !source cleanup_db_objects.sql
