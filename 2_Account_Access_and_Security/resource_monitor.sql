@@ -1,5 +1,5 @@
-!source variables.sql
---!source setup_db_objects.sql
+!source ../variables.sql
+--!source ../setup_db_objects.sql
 
 /* -----------------------------------------------------------------------------
    RESOURCE MONITORS (Cost Control)

@@ -1,5 +1,4 @@
 -- Script to setup the database, schemas, tables, views, roles, functions, and warehouse
-!source variables.sql
 
 /* -----------------------------------------------------------------------------
   SETUP THE DATABASE, SCHEMAS, TABLES, VIEWS, WAREHOUE

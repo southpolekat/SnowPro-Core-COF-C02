@@ -1,5 +1,5 @@
-!source variables.sql
-!source setup_db_objects.sql
+!source ../variables.sql
+!source ../setup_db_objects.sql
 
 /* -----------------------------------------------------------------------------
   Network Policy Test Script
@@ -104,4 +104,4 @@ ALTER USER &{user_2_name} UNSET NETWORK_POLICY;
 DROP NETWORK POLICY IF EXISTS &{policy_1_name};
 DROP NETWORK POLICY IF EXISTS &{policy_2_name};
 
-!source cleanup_db_objects.sql
+!source ../cleanup_db_objects.sql
