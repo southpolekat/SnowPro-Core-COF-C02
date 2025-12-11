@@ -9,8 +9,6 @@
     * **External Knowledge:** Sizes range from X-Small to 6X-Large (and beyond in newer editions), doubling credit usage with each size increase.
 
 ## 2. Scaling Strategies
-Your uploaded notes distinguish between two specific types of scaling:
-
 * **Scale Up (Vertical Scaling):**
     * **Goal:** Increase performance.
     * **Action:** Resize the warehouse to a larger size (e.g., Medium to Large).
