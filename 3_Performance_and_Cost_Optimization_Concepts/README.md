@@ -48,9 +48,11 @@ Snowflake uses three distinct layers of caching to optimize performance:
     3.  **Notify & Suspend Immediately:** Kill running queries and suspend immediately.
 * **Permissions:** Can only be created by AccountAdmins.
 
-## 6. Query Optimization Features
-* **Micro-partitions:** Data is automatically divided into contiguous units (50-500MB) compressed and columnar.
-    * **Pruning:** The process of scanning only relevant micro-partitions to answer a query, saving time.
-* **Materialized Views:** Pre-computed views useful for aggregation; mentioned as a view type in your notes.
-* **Clustering:** (External Knowledge) Reorganizing data to improve pruning efficiency.
-* **Search Optimization Service:** (External Knowledge) Accelerates point lookups.
+## 6. Snowflake Optimization & Performance Features 
+| Feature | Solves (The Problem) | Cases (Best Use Scenarios) |
+| :--- | :--- | :--- |
+| **Materialized Views** | **Repeated Computation.** Expensive aggregations are calculated every time the query runs. | **Dashboards/Reports:** Queries that frequently use `SUM`, `COUNT`, or `AVG` on huge tables (e.g., "Daily Sales by Region"). |
+| **Clustering** | **Inefficient Pruning.** Snowflake scans too many micro-partitions because data is not sorted physically. | **Range Filters:** Queries using `BETWEEN` dates or timestamps. Also helpful for low-cardinality filters (e.g., `Region`). |
+| **Search Optimization** | **"Needle in a Haystack".** Finding a specific row in billions of records is slow without an index. | **Point Lookups:** Finding a single Customer `ID`, `Email`, `UUID`, or checking a JSON field in a massive table. |
+| **Query Acceleration** | **Outlier Queries (Complexity).** A single massive query overloads the warehouse, sucking up all resources. | **Ad-hoc Analytics:** A Data Scientist scans 10TB of data in one query, requiring a temporary "burst" of compute power without resizing the whole warehouse. |
+| **Multi-cluster Warehouses** | **Concurrency (Traffic Jams).** Too many users are running queries at the same time, causing **Queuing**. | **Monday Morning Rush:** 50+ users logging in at 9 AM. The warehouse adds "lanes" (clusters) to handle the volume, then shuts them down. |
