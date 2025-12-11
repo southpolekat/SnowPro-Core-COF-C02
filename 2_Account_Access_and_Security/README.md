@@ -70,3 +70,12 @@ Scope-Based Role Type
 | **Tri-Secret Secure** | Data Encryption | Requires Business Critical Edition or higher. Snowflake's advanced encryption layer using **three unique keys** (including the Customer-Managed Key, if configured) to secure data at rest. |
 | **Client Redirect** | Seamless Connectivity | Requires Business Critical edition or higher. Allows administrators to redirect users to a **specific or secondary Snowflake URL** (e.g., for failover/DR) without users changing connection strings. |
 | **Federated Authentication** | Identity | Enables **Single Sign-On (SSO)** for human users via an external Identity Provider (IdP) using SAML, replacing password authentication. |
+
+## Monitoring & Auditing
+| Feature | Category | Function (What it does) |
+| :--- | :--- | :--- |
+| **Login History** | Security | Tracks **authentication events** (Client IP, User, Success/Failure) to spot suspicious access. |
+| **Query History** | Performance | Specific details on **SQL execution** (Duration, Warehouse used, Bytes Scanned) to debug slow queries. |
+| **Access History** | Compliance | A detailed audit trail of **Column Lineage** (which specific tables/columns were read or modified). |
+| **Resource Monitors** | Cost Control | Tracks **Credit Usage** and can trigger alerts or **suspend warehouses** to prevent overspending. |
+| **Copy History** | Data Loading | Logs the status of **data ingestion** (files loaded vs. failed) to troubleshoot bulk data loads. |
