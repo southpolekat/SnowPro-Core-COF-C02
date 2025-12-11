@@ -52,8 +52,8 @@ SELECT SYSTEM$CLUSTERING_INFORMATION('&{database_name}.&{schema_name}.&{table_na
 ------------------------------------------------------------------------------- */
 
 -- Enable Search Optimization on the table
-ALTER TABLE &{database_name}.&{schema_name}.&{table_name} ADD SEARCH OPTIMIZATION;
-ALTER TABLE &{database_name}.&{schema_name}.&{table_name} ADD SEARCH OPTIMIZATION ON EQUALITY(CUST_ID);
+ALTER TABLE &{database_name}.&{schema_name}.&{table_name} ADD SEARCH OPTIMIZATION; -- for the entire table
+ALTER TABLE &{database_name}.&{schema_name}.&{table_name} ADD SEARCH OPTIMIZATION ON EQUALITY(CUST_ID); -- for the CUST_ID column
 
 -- Test: Run a point lookup query (Snowflake will use SOS if efficient)
 SELECT * FROM &{database_name}.&{schema_name}.&{table_name} WHERE CUST_ID = 1;
