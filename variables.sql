@@ -27,4 +27,6 @@
 -- Note: Replace the password with a secure, temporary password
 !define password=TEMP_CHANGE_ME_NOW_123!;
 
+!define stage_name=STAGE_1;
+
 set current_user = current_user();

@@ -49,7 +49,7 @@ LIST @~;
 
 -- COPY the test.csv to the table's stage, two ways
 -- snowsql -c <connection_name> -q 'PUT file:///tmp/test.csv @&{database_name}.&{schema_name}.%&{table_name}'
--- snowsql -c <connection_name> -d &{database_name} -s &{schema_name} -q 'PUT file:///tmp/test.csv %&{table_name}'
+-- snowsql -c <connection_name> -d &{database_name} -s &{schema_name} -q 'PUT file:///tmp/test.csv @%&{table_name}'
 
 -- List files in the table's stage
 LIST @%&{table_name};
