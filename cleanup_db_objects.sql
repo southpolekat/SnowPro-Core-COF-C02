@@ -1,5 +1,3 @@
-!source variables.sql
-
 use role securityadmin;
 drop role if exists &{governance_role};
 drop role if exists &{role_name};
