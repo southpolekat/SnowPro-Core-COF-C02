@@ -71,3 +71,15 @@ You can query metadata columns when loading data or inspecting a stage .
 
 * `METADATA$FILENAME`: Name of the staged data file the current row belongs to .
 * `METADATA$FILE_ROW_NUMBER`: Row number for each record in the container staged data file .
+
+## Table Types
+
+| Table Type | Storage | Time Travel | Use Case |
+| :--- | :--- | :--- | :--- |
+| **Permanent** | Snowflake | 0-90 Days | Standard production data. |
+| **Transient** | Snowflake | 0-1 Day | Dev/Test data. No Fail-Safe costs. |
+| **Temporary** | Snowflake | 0-1 Day | Session-only data. Dropped when session ends. |
+| **External** | Customer (S3/Azure) | N/A | Querying data in Data Lake without loading. |
+| **Hybrid** (Unistore)* | Snowflake | Yes | **OLTP**, high-concurrency transactional workloads. |
+| **Directory*** | Stage Attachment | N/A | File catalog (size, mod_time) for unstructured data. |
+| **Dynamic*** | Snowflake | Yes | Declarative data engineering pipelines (Auto-refreshing). |
