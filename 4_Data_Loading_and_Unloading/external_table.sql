@@ -18,7 +18,7 @@ USE SCHEMA &{schema_name};
 
 /* -----------------------------------------------------------------------------
    STEP 1: PREPARE STAGE and FORMAT
-   We reuse the S3 Integration and Stage from the previous steps.
+   We reuse the S3 Integration and Stage from external_stages.sql.
 ------------------------------------------------------------------------------- */
 
 -- 1. Create File Format (Standard CSV)
@@ -43,9 +43,9 @@ CREATE STAGE IF NOT EXISTS &{database_name}.&{schema_name}.my_s3_stage
 ------------------------------------------------------------------------------- */
 
 CREATE OR REPLACE EXTERNAL TABLE &{database_name}.&{schema_name}.MY_EXT_TABLE (
-    CUST_ID VARCHAR AS ($1::VARCHAR),
-    CUST_NAME VARCHAR AS ($2::VARCHAR),
-    REGION VARCHAR AS ($3::VARCHAR)
+    CUST_ID INT AS (value:c1::INT),
+    CUST_NAME VARCHAR AS (value:c2::VARCHAR),
+    REGION VARCHAR AS (value:c3::VARCHAR)
 )
     LOCATION = @&{database_name}.&{schema_name}.my_s3_stage
     FILE_FORMAT = &{database_name}.&{schema_name}.MY_CSV_FORMAT
