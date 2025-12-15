@@ -80,6 +80,14 @@ You can query metadata columns when loading data or inspecting a stage .
 | **Transient** | Snowflake | 0-1 Day | Dev/Test data. No Fail-Safe costs. |
 | **Temporary** | Snowflake | 0-1 Day | Session-only data. Dropped when session ends. |
 | **External** | Customer (S3/Azure) | N/A | Querying data in Data Lake without loading. |
-| **Hybrid** (Unistore)* | Snowflake | Yes | **OLTP**, high-concurrency transactional workloads. |
-| **Directory*** | Stage Attachment | N/A | File catalog (size, mod_time) for unstructured data. |
-| **Dynamic*** | Snowflake | Yes | Declarative data engineering pipelines (Auto-refreshing). |
+| **Hybrid** (Unistore) | Snowflake | Yes | **OLTP**, high-concurrency transactional workloads. |
+| **Directory** | Stage Attachment | N/A | File catalog (size, mod_time) for unstructured data. |
+| **Dynamic** | Snowflake | Yes | Declarative data engineering pipelines (Auto-refreshing). |
+
+### Iceberg Tables
+* **Definition**: Open Table Format (Apache Iceberg) where data (Parquet) and metadata live in your external cloud storage, but Snowflake manages the catalog.
+* **Key Object**: Requires an **External Volume** (not just a Storage Integration).
+* **Catalog Modes**:
+    * **Snowflake Managed**: Full DML support (Insert/Update/Delete). Snowflake manages the metadata.
+    * **External**: Read-only access to Iceberg tables managed by other systems (Spark/Glue).
+* **Benefits**: Open standard (no vendor lock-in), full Snowflake performance features (Time Travel, masking), customer-managed storage.
